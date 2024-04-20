@@ -1,5 +1,18 @@
-body {
-  background-color: green;
-}
+/* Error: Undefined variable.
+ *    ,
+ * 55 |         font-family: $font-secondary;
+ *    |                      ^^^^^^^^^^^^^^^
+ *    '
+ *   sass/pages/_menu.scss 55:22  @import
+ *   sass/main.scss 5:9           root stylesheet */
 
-/*# sourceMappingURL=style.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a    \2577 \a 55 \2502          font-family: $font-secondary;\a    \2502                       ^^^^^^^^^^^^^^^\a    \2575 \a   sass/pages/_menu.scss 55:22  @import\a   sass/main.scss 5:9           root stylesheet";
+}

@@ -1,0 +1,180 @@
+@import "../utils/variables";
+
+.back-button{
+    top: 0;
+    left: 20px;
+    font-size: 8vh;
+    position: absolute;
+    font-weight: 900;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+.imagebackground{
+    left: 0;
+    top: 13vh;
+    position: absolute;
+    // z-index: -1;
+}
+
+.whitebackground{
+    margin-top: 50vh;
+    background-color: #e3e3e3;
+    border-radius: 14vh 14vh 0 0;
+    padding: 0 20px;
+    margin-bottom: 0;
+    
+}
+
+.order-btn {
+    background-image: linear-gradient(to bottom, $color-secondary, $color-primary);
+    border: none;
+    font-size: 18px;
+    padding: .7em 2em;
+    margin: 0;
+    margin-bottom: 5vh;
+    border-radius: 27px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-image: linear-gradient(to bottom, lighten($color-secondary, 5%), lighten($color-primary, 5%));
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4); // Increase the shadow to make it more visible
+    }
+}
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    h1 {
+        margin-top: 30px;
+        font-family: $font-secondary;
+        font-style: italic;
+        font-size: 2em;
+        font-weight: bold;
+        color: $color-primary;
+        padding: 9px;
+        color: black;
+    }
+
+    .like-button {
+        font-size: 2em;
+        cursor: pointer;
+        color: black;
+        transition: color 0.3s;
+        margin-right: 4vh;
+        
+        &:hover {
+            color: $color-secondary;
+        }
+    }
+}
+
+.menu-section {
+    margin: 0;
+    
+    h2 {
+        font-family: $font-secondary;
+        color: black;
+        font-weight: lighter;
+        margin-bottom: .2em;
+        margin-top: 0;
+        padding-left: 9px;
+        font-size: 17px;
+    }
+
+    hr{
+        width: 3em;
+        height: 3px;
+        background-color: $color-tertiary;
+        border: none;
+        margin-left: 10px;
+        margin-bottom: 1em;
+    }
+    
+    .menu-item {
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        padding: 2px 1em;
+        margin-bottom: 1em;
+        border-radius: 10px;
+        position: relative;
+        transition: transform 0.3s ease;
+        
+        
+        &:hover {
+            transform: translateY(-5px);
+            
+            .checker {
+                right: 1.7em;
+                opacity: 1;
+                width: auto;
+                transform: rotate(360deg);
+                transition: right 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+            }
+
+            .checkmark {
+                width: 13%;
+            }
+        }
+
+
+        
+        .dish-name {
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: black;
+        }
+        
+        .dish-description {
+            font-size: 0.8em;
+            color: black;
+        }
+        
+        .dish-price {
+            font-size: 1em;
+            color: black;
+            position: absolute;
+            right: 1em;
+            bottom: 1em;
+        }
+        
+        .checker {
+            position: absolute;
+            right: 0;
+            width: 0;
+            bottom: 2em;
+            font-size: .9em;
+            padding: 0 .2em;
+            color: $color-tertiary;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0;
+            z-index: 3;
+            transition: right 0.5s ease, opacity 0.5s ease; // Keep only the right and opacity transitions here
+            transform-origin: center;
+        }
+
+        .checkmark{
+            position: absolute;
+            background-color: $color-tertiary;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            transition: right 0.5s ease, opacity 0.5s ease;
+        }
+    }
+}
+
+.button-div{
+    width: 100vh;
+    text-align: center;
+    margin-top: 34px;    
+}
