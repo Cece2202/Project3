@@ -1,9 +1,9 @@
 @import "../utils/variables";
 
-.back-button{
+.back-button i{
     top: 0;
     left: 20px;
-    font-size: 8vh;
+    font-size: 86px;
     position: absolute;
     font-weight: 900;
     margin: 0;
@@ -13,15 +13,19 @@
 
 .imagebackground{
     left: 0;
-    top: 13vh;
+    top: 70px;
     position: absolute;
-    // z-index: -1;
+    z-index: -1;
+
+    img{
+        width: 500px;
+    }
 }
 
 .whitebackground{
-    margin-top: 50vh;
+    margin-top: 250px;
     background-color: #e3e3e3;
-    border-radius: 14vh 14vh 0 0;
+    border-radius: 75px 75px 0 0;
     padding: 0 20px;
     margin-bottom: 0;
     
@@ -31,9 +35,9 @@
     background-image: linear-gradient(to bottom, $color-secondary, $color-primary);
     border: none;
     font-size: 18px;
-    padding: .7em 2em;
+    padding: 11px 32px;
     margin: 0;
-    margin-bottom: 5vh;
+    margin-bottom: 54px;
     border-radius: 27px;
     color: white;
     cursor: pointer;
@@ -54,19 +58,19 @@
         margin-top: 30px;
         font-family: $font-secondary;
         font-style: italic;
-        font-size: 2em;
+        font-size: 32px;
         font-weight: bold;
         color: $color-primary;
         padding: 9px;
         color: black;
     }
 
-    .like-button {
-        font-size: 2em;
+    .like-button-header {
+        font-size: 32px;
         cursor: pointer;
         color: black;
         transition: color 0.3s;
-        margin-right: 4vh;
+        margin-right: 43px;
         
         &:hover {
             color: $color-secondary;
@@ -81,26 +85,26 @@
         font-family: $font-secondary;
         color: black;
         font-weight: lighter;
-        margin-bottom: .2em;
+        margin-bottom: 3px;
         margin-top: 0;
         padding-left: 9px;
         font-size: 17px;
     }
 
     hr{
-        width: 3em;
+        width: 48px;
         height: 3px;
         background-color: $color-tertiary;
         border: none;
         margin-left: 10px;
-        margin-bottom: 1em;
+        margin-bottom: 16px;
     }
     
     .menu-item {
         background-color: white;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        padding: 2px 1em;
-        margin-bottom: 1em;
+        padding: 2px 16px;
+        margin-bottom: 16px;
         border-radius: 10px;
         position: relative;
         transition: transform 0.3s ease;
@@ -110,7 +114,7 @@
             transform: translateY(-5px);
             
             .checker {
-                right: 1.7em;
+                right: 27px;
                 opacity: 1;
                 width: auto;
                 transform: rotate(360deg);
@@ -133,25 +137,25 @@
         }
         
         .dish-description {
-            font-size: 0.8em;
+            font-size: 12px;
             color: black;
         }
         
         .dish-price {
-            font-size: 1em;
+            font-size: 16px;
             color: black;
             position: absolute;
-            right: 1em;
-            bottom: 1em;
+            right: 16px;
+            bottom: 16px;
         }
         
         .checker {
             position: absolute;
             right: 0;
             width: 0;
-            bottom: 2em;
-            font-size: .9em;
-            padding: 0 .2em;
+            bottom: 32px;
+            font-size: 14px;
+            padding: 0 3px;
             color: $color-tertiary;
             background-color: white;
             border-radius: 50%;
@@ -177,4 +181,37 @@
     width: 100vh;
     text-align: center;
     margin-top: 34px;    
+}
+
+footer {
+    background-color: #3b3b3b;
+
+    text-align: left;
+    padding: 32px;
+
+    h2 {
+        font-family: $font-secondary;
+        color: white;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            margin-bottom: 0.5em;
+            color: white;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+
+    img {
+        height: 30px;
+        margin-top: 1em;
+    }
 }
