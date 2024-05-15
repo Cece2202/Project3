@@ -320,6 +320,35 @@ header img {
   height: 33px;
 }
 
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+}
+
+.spinner {
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid #3498db;
+  /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .location {
   display: flex;
   flex-direction: row;
@@ -328,12 +357,12 @@ header img {
   justify-content: center;
   align-items: baseline;
   color: black;
-  box-shadow: inset 0 8px 6px -6px black;
+  box-shadow: inset 0 8px 6px -6px gray;
   font-size: 15px;
   font-weight: bold;
   background-color: rgba(0, 0, 0, 0.1);
-  padding: 1em 0;
-  gap: 20px;
+  padding: 8px 0;
+  gap: 15px;
 }
 
 .explore {
@@ -354,10 +383,9 @@ header img {
 }
 .explore .explore-button {
   background-image: linear-gradient(-10deg, #9356dc, #ff79ff);
-  background-color: white;
   border: none;
   font-size: 18px;
-  padding: 16px 32px;
+  padding: 16px 20px;
   margin-bottom: 54px;
   border-radius: 27px;
   color: white;
@@ -365,13 +393,14 @@ header img {
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
   transition: background-color 0.3s ease;
 }
-.explore .explore-button hover {
-  background-color: white;
+.explore .explore-button:hover {
+  background-image: linear-gradient(-10deg, #a16be0, #ff93ff);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.35);
 }
 
 .how-it-works {
   text-align: left;
-  padding: 32px;
+  padding: 20px;
   color: black;
   font-weight: bold;
   margin-bottom: 4vh;
@@ -381,13 +410,22 @@ header img {
   padding: 0;
   counter-reset: step-counter;
 }
+.how-it-works ul i {
+  color: gray;
+  gap: 8px;
+}
+.how-it-works ul i:hover {
+  color: #9356dc;
+}
 .how-it-works ul li {
+  display: flex;
   counter-increment: step-counter;
   background-color: rgba(0, 0, 0, 0.05);
   margin: 28px 0;
   position: relative;
   padding: 32px 36px;
   border-radius: 30px;
+  gap: 15px;
   box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.27);
 }
 .how-it-works ul li:before {
@@ -405,11 +443,11 @@ header img {
   justify-content: center;
 }
 .how-it-works ul li:hover {
-  background-color: #9356dc;
+  background-color: #e4d5f6;
 }
 
 .restaurants {
-  padding: 32px;
+  padding: 20px;
   color: black;
   background-color: rgba(0, 0, 0, 0.05);
 }
@@ -428,13 +466,16 @@ header img {
   position: relative;
   overflow: hidden;
   max-width: 500px;
+  height: 250px;
+  width: 350px;
   text-decoration: none;
 }
 .restaurants .restaurant-card img {
-  max-height: 60vh;
+  max-height: 180px;
   width: 100%;
 }
 .restaurants .restaurant-card h2 {
+  margin-top: 8px;
   margin-left: 11px;
   margin-bottom: 0;
   font-size: 20px;
@@ -448,21 +489,23 @@ header img {
   color: black;
 }
 .restaurants .tag-new {
+  display: flex;
+  justify-content: center;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   background-color: #99E2D0;
   color: #278870;
   font-weight: bold;
-  padding: 8px 40px;
+  padding: 8px 30px;
   border-radius: 2px;
-  font-size: 18px;
+  font-size: 14px;
 }
 .restaurants .like-button {
   position: absolute;
   bottom: 30px;
   right: 30px;
-  font-size: 40px;
+  font-size: 25px;
   color: black;
 }
 .restaurants .like-button-full {
@@ -696,7 +739,7 @@ footer img {
 .back-button i {
   top: 0;
   left: 20px;
-  font-size: 86px;
+  font-size: 30px;
   position: absolute;
   font-weight: 900;
   margin: 0;
@@ -711,13 +754,14 @@ footer img {
   z-index: -1;
 }
 .imagebackground img {
-  width: 500px;
+  width: 400px;
+  height: 300px;
 }
 
 .whitebackground {
   margin-top: 250px;
   background-color: #e3e3e3;
-  border-radius: 75px 75px 0 0;
+  border-radius: 45px 45px 0 0;
   padding: 0 20px;
   margin-bottom: 0;
 }
@@ -744,6 +788,7 @@ footer img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 .menu-header h1 {
   margin-top: 30px;
@@ -756,25 +801,37 @@ footer img {
   color: black;
 }
 .menu-header .like-button-header {
-  font-size: 32px;
-  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  font-size: 25px;
   color: black;
-  transition: color 0.3s;
-  margin-right: 43px;
 }
-.menu-header .like-button-header:hover {
-  color: #FF79DA;
+.menu-header .like-button-header-full {
+  opacity: 0;
+  transition: opacity 300ms;
+  background-image: linear-gradient(-10deg, #FF79DA, #9356DC);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.menu-header .like-button-header-full:hover {
+  opacity: 1;
+}
+.menu-header .like-button-header p {
+  font-size: 48px;
+  font-weight: 100;
 }
 
 .menu-section {
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .menu-section h2 {
   font-family: "Shrikhand", serif;
   color: black;
   font-weight: lighter;
-  margin-bottom: 3px;
-  margin-top: 0;
   padding-left: 9px;
   font-size: 17px;
 }
@@ -789,70 +846,74 @@ footer img {
 .menu-section .menu-item {
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  padding: 2px 16px;
-  margin-bottom: 16px;
   border-radius: 10px;
-  position: relative;
-  transition: transform 0.3s ease;
+  overflow: hidden;
+  height: 80px;
+  width: 330px;
 }
-.menu-section .menu-item:hover {
-  transform: translateY(-5px);
+.menu-section .menu-item__squeezer {
+  width: 410px;
+  display: flex;
+  justify-content: space-between;
+  transition: width 1s;
 }
-.menu-section .menu-item:hover .checker {
-  right: 27px;
-  opacity: 1;
-  width: auto;
-  transform: rotate(360deg);
-  transition: right 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
-}
-.menu-section .menu-item:hover .checkmark {
-  width: 13%;
-}
-.menu-section .menu-item .dish-name {
-  font-weight: bold;
+.menu-section .menu-item__text {
+  flex: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 2px 16px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.menu-section .menu-item__text .dish-name {
+  font-weight: bold;
   color: black;
 }
-.menu-section .menu-item .dish-description {
+.menu-section .menu-item__text .dish-description {
   font-size: 12px;
   color: black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .menu-section .menu-item .dish-price {
   font-size: 16px;
   color: black;
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
-}
-.menu-section .menu-item .checker {
-  position: absolute;
-  right: 0;
-  width: 0;
-  bottom: 32px;
-  font-size: 14px;
-  padding: 0 3px;
-  color: #99E2D0;
-  background-color: white;
-  border-radius: 50%;
-  opacity: 0;
-  z-index: 3;
-  transition: right 0.5s ease, opacity 0.5s ease;
-  transform-origin: center;
+  width: 70px;
+  min-width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 .menu-section .menu-item .checkmark {
-  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  min-width: 80px;
+  border-radius: 0 10px 10px 0;
   background-color: #99E2D0;
-  right: 0;
-  top: 0;
-  height: 100%;
-  width: 0;
-  transition: right 0.5s ease, opacity 0.5s ease;
+}
+.menu-section .menu-item .checkmark i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: #99E2D0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  transition: transform 1s ease;
+}
+.menu-section .menu-item:hover .menu-item__squeezer {
+  width: 330px;
+}
+.menu-section .menu-item:hover .checkmark i {
+  transform: rotate(360deg);
 }
 
 .button-div {
-  width: 100vh;
   text-align: center;
   margin-top: 34px;
 }
@@ -862,10 +923,6 @@ footer {
   text-align: left;
   padding: 32px;
 }
-footer h2 {
-  font-family: "Shrikhand", serif;
-  color: white;
-}
 footer nav ul {
   list-style: none;
   padding: 0;
@@ -873,15 +930,13 @@ footer nav ul {
 }
 footer nav ul li {
   margin-bottom: 0.5em;
-  color: white;
 }
 footer nav ul a {
   color: white;
   text-decoration: none;
 }
-footer img {
-  height: 30px;
-  margin-top: 1em;
+footer nav ul i {
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */

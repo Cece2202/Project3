@@ -1,9 +1,9 @@
 @import "../utils/variables";
 
-.back-button i{
+.back-button i {
     top: 0;
     left: 20px;
-    font-size: 86px;
+    font-size: 30px;
     position: absolute;
     font-weight: 900;
     margin: 0;
@@ -11,24 +11,25 @@
     color: black;
 }
 
-.imagebackground{
+.imagebackground {
     left: 0;
     top: 70px;
     position: absolute;
     z-index: -1;
 
-    img{
-        width: 500px;
+    img {
+        width: 400px;
+        height: 300px;
     }
 }
 
-.whitebackground{
+.whitebackground {
     margin-top: 250px;
     background-color: #e3e3e3;
-    border-radius: 75px 75px 0 0;
+    border-radius: 45px 45px 0 0;
     padding: 0 20px;
     margin-bottom: 0;
-    
+
 }
 
 .order-btn {
@@ -49,11 +50,13 @@
         box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4); // Increase the shadow to make it more visible
     }
 }
+
 .menu-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    position: relative;
+
     h1 {
         margin-top: 30px;
         font-family: $font-secondary;
@@ -66,32 +69,50 @@
     }
 
     .like-button-header {
-        font-size: 32px;
-        cursor: pointer;
+        position: absolute;
+        right: 30px;
+        font-size: 25px;
         color: black;
-        transition: color 0.3s;
-        margin-right: 43px;
-        
-        &:hover {
-            color: $color-secondary;
+
+        // transition: all ease 0.4s;
+        &-full {
+            opacity: 0;
+            transition: opacity 300ms;
+            background-image: linear-gradient(-10deg, $color-secondary, $color-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+
+            &:hover {
+                opacity: 1;
+            }
         }
+
+        p {
+            font-size: 48px;
+            font-weight: 100;
+        }
+
     }
 }
 
 .menu-section {
     margin: 0;
-    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
     h2 {
         font-family: $font-secondary;
         color: black;
         font-weight: lighter;
-        margin-bottom: 3px;
-        margin-top: 0;
+        // margin-bottom: 3px;
+        // margin-top: 0;
         padding-left: 9px;
         font-size: 17px;
     }
 
-    hr{
+    hr {
         width: 48px;
         height: 3px;
         background-color: $color-tertiary;
@@ -99,88 +120,104 @@
         margin-left: 10px;
         margin-bottom: 16px;
     }
-    
+
     .menu-item {
         background-color: white;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        padding: 2px 16px;
-        margin-bottom: 16px;
-        border-radius: 10px;
-        position: relative;
-        transition: transform 0.3s ease;
-        
-        
-        &:hover {
-            transform: translateY(-5px);
-            
-            .checker {
-                right: 27px;
-                opacity: 1;
-                width: auto;
-                transform: rotate(360deg);
-                transition: right 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
-            }
 
-            .checkmark {
-                width: 13%;
-            }
+        border-radius: 10px;
+        // transition: transform 0.3s ease;
+        overflow: hidden;
+        height: 80px;
+        width: 330px;
+
+        &__squeezer {
+            width: 410px;
+            display: flex;
+            justify-content: space-between;
+            transition: width 1s;
         }
 
-
-        
-        .dish-name {
-            font-weight: bold;
+        &__text {
+            flex: fit-content;
+            display: flex;
+            flex-direction: column;
+            padding: 2px 16px;
+            // margin-bottom: 16px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            color: black;
+           
+
+            .dish-name {
+                font-weight: bold;
+                color: black;
+            }
+
+            .dish-description {
+                font-size: 12px;
+                color: black;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
         }
-        
-        .dish-description {
-            font-size: 12px;
-            color: black;
-        }
-        
+
         .dish-price {
             font-size: 16px;
             color: black;
-            position: absolute;
-            right: 16px;
-            bottom: 16px;
-        }
-        
-        .checker {
-            position: absolute;
-            right: 0;
-            width: 0;
-            bottom: 32px;
-            font-size: 14px;
-            padding: 0 3px;
-            color: $color-tertiary;
-            background-color: white;
-            border-radius: 50%;
-            opacity: 0;
-            z-index: 3;
-            transition: right 0.5s ease, opacity 0.5s ease; // Keep only the right and opacity transitions here
-            transform-origin: center;
+            width: 70px;
+            min-width: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
         }
 
-        .checkmark{
-            position: absolute;
+        .checkmark {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80px;
+            min-width: 80px;
+            border-radius: 0 10px 10px 0;
             background-color: $color-tertiary;
-            right: 0;
-            top: 0;
-            height: 100%;
-            width: 0;
-            transition: right 0.5s ease, opacity 0.5s ease;
+
+            i {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: white;
+                color: $color-tertiary;
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                transition: transform 1s ease;
+            }
         }
+
+        &:hover {
+            .menu-item__squeezer {
+                width: 330px;
+            }
+
+            // transform: translateY(-5px);
+            .checkmark i {
+                transform: rotate(360deg);
+            }
+        }
+
     }
+
+
+
+
 }
 
-.button-div{
-    width: 100vh;
+
+.button-div {
+    // width:;
     text-align: center;
-    margin-top: 34px;    
+    margin-top: 34px;
 }
 
 footer {
@@ -189,11 +226,6 @@ footer {
     text-align: left;
     padding: 32px;
 
-    h2 {
-        font-family: $font-secondary;
-        color: white;
-    }
-
     nav ul {
         list-style: none;
         padding: 0;
@@ -201,17 +233,15 @@ footer {
 
         li {
             margin-bottom: 0.5em;
-            color: white;
         }
 
         a {
             color: white;
             text-decoration: none;
         }
-    }
 
-    img {
-        height: 30px;
-        margin-top: 1em;
+        i {
+            color: white;
+        }
     }
 }
