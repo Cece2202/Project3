@@ -11,23 +11,23 @@
 }
 
 .imagebackground {
-    left: 0;
-    top: 70px;
-    position: absolute;
-    z-index: -1;
 
     img {
-        width: 400px;
+        width: 100%;
         height: 300px;
+        object-fit: cover;
     }
 }
 
 .whitebackground {
-    margin-top: 250px;
+    margin: auto;
+    margin-top: -50px;
     background-color: #e3e3e3;
     border-radius: 45px 45px 0 0;
     padding: 0 20px;
     margin-bottom: 0;
+    position: relative;
+    z-index: 10000;
 
 }
 
@@ -61,7 +61,7 @@
         font-family: $font-secondary;
         font-style: italic;
         font-size: 28px;
-        font-weight:100;
+        font-weight: 100;
         color: $color-primary;
         padding: 9px;
         color: black;
@@ -102,9 +102,9 @@
     gap: 12px;
 
     h2 {
-        font-family: $font-secondary;
+        font-family: $font-primary;
         color: black;
-        font-weight:100;
+        font-weight: 100;
         margin-bottom: 1px;
         margin-top: 17px;
         // padding-left: 9px;
@@ -133,12 +133,12 @@
         width: 100%;
         opacity: 0;
         transform: translateY(-20px);
-        animation: fadeInDown 3s ease-in-out forwards;
+        animation: fadeInUp 1s 0s ease-in-out forwards;
 
-        @keyframes fadeInDown {
+        @keyframes fadeInUp {
             0% {
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(20px);
             }
 
             100% {
@@ -147,16 +147,20 @@
             }
         }
 
-        .menu-item:nth-child(1) {
-            animation-delay: 0.3s;
+        &:nth-child(3) {
+            animation-delay: 0s;
         }
 
-        .menu-item:nth-child(2) {
-            animation-delay: 0.5s;
+        &:nth-child(4) {
+            animation-delay: 100ms;
         }
 
-        .menu-item:nth-child(3) {
-            animation-delay: 0.7s;
+        &:nth-child(5) {
+            animation-delay: 200ms;
+        }
+
+        &:nth-child(6) {
+            animation-delay: 300ms;
         }
 
         &__squeezer {
@@ -209,6 +213,7 @@
             align-items: center;
             width: 80px;
             min-width: 80px;
+            height: 80px;
             border-radius: 0 10px 10px 0;
             background-color: $color-tertiary;
             // animation: rotate 1s ease-in-out forwards;
@@ -302,26 +307,14 @@ footer {
     }
 
     .imagebackground {
-        left: 0;
-        top: 70px;
-        position: absolute;
-        z-index: -1;
 
         img {
-            width: 1440px;
             height: 400px;
         }
     }
 
     .whitebackground {
-        margin-top: 250px;
-        background-color: #e3e3e3;
-        border-radius: 45px 45px 0 0;
-        padding: 0 200px;
-        margin-bottom: 0;
-        margin-left: 200px;
-        margin-right: 200px;
-
+        max-width: 900px;
     }
 
     .order-btn {
@@ -406,14 +399,7 @@ footer {
         }
 
         h2 {
-            font-family: $font-secondary;
-            color: black;
             font-weight: lighter;
-            // margin-bottom: 3px;
-            margin-top: 17px;
-            padding-left: 9px;
-            font-size: 17px;
-            // margin: 0;
         }
 
 
@@ -470,39 +456,9 @@ footer {
                 align-items: flex-end;
             }
 
-            .checkmark {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 80px;
-                min-width: 80px;
-                border-radius: 0 10px 10px 0;
-                background-color: $color-tertiary;
 
-                i {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: white;
-                    color: $color-tertiary;
-                    width: 25px;
-                    height: 25px;
-                    border-radius: 50%;
-                    transition: transform 1s ease;
-                    // FIXME use keyframe instead of transition to rotate white checkmark and use the forwards option
-                }
-            }
 
-            &:hover {
-                .menu-item__squeezer {
-                    width: 100%;
-                }
 
-                // transform: translateY(-5px);
-                .checkmark i {
-                    transform: rotate(360deg);
-                }
-            }
 
         }
 
