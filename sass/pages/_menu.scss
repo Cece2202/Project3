@@ -1,7 +1,6 @@
 @import "../utils/variables";
 
 .back-button i {
-    top: 0;
     left: 20px;
     font-size: 30px;
     position: absolute;
@@ -36,7 +35,7 @@
     background-image: linear-gradient(to bottom, $color-secondary, $color-primary);
     border: none;
     font-size: 18px;
-    padding: 11px 32px;
+    padding: 11px 60px;
     margin: 0;
     margin-bottom: 54px;
     border-radius: 27px;
@@ -61,7 +60,7 @@
         margin-top: 30px;
         font-family: $font-secondary;
         font-style: italic;
-        font-size: 32px;
+        font-size: 28px;
         font-weight: bold;
         color: $color-primary;
         padding: 9px;
@@ -100,16 +99,17 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
 
     h2 {
         font-family: $font-secondary;
         color: black;
         font-weight: lighter;
-        // margin-bottom: 3px;
-        // margin-top: 0;
-        padding-left: 9px;
+        margin-bottom: 1px;
+        margin-top: 17px;
+        // padding-left: 9px;
         font-size: 17px;
+        // margin: 0;
     }
 
     hr {
@@ -119,7 +119,9 @@
         border: none;
         margin-left: 10px;
         margin-bottom: 16px;
+        margin: 0;
     }
+
 
     .menu-item {
         background-color: white;
@@ -129,10 +131,10 @@
         // transition: transform 0.3s ease;
         overflow: hidden;
         height: 80px;
-        width: 330px;
+        width: 100%;
 
         &__squeezer {
-            width: 410px;
+            width: calc(100% + 80px);
             display: flex;
             justify-content: space-between;
             transition: width 1s;
@@ -147,7 +149,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-           
+
 
             .dish-name {
                 font-weight: bold;
@@ -181,6 +183,7 @@
             min-width: 80px;
             border-radius: 0 10px 10px 0;
             background-color: $color-tertiary;
+            // animation: rotate 1s ease-in-out forwards;
 
             i {
                 display: flex;
@@ -191,18 +194,30 @@
                 width: 25px;
                 height: 25px;
                 border-radius: 50%;
-                transition: transform 1s ease;
+                // FIXME use keyframe instead of transition to rotate white checkmark and use the forwards option
+                // transform: rotate(90deg);
+            }
+
+            @keyframes rotate-checkmark {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
             }
         }
 
         &:hover {
             .menu-item__squeezer {
-                width: 330px;
+                width: 100%;
             }
 
             // transform: translateY(-5px);
             .checkmark i {
-                transform: rotate(360deg);
+                // transform: rotate(360deg);
+                animation: rotate-checkmark 1s forwards;
             }
         }
 
@@ -212,6 +227,7 @@
 
 
 }
+
 
 
 .button-div {
@@ -242,6 +258,270 @@ footer {
 
         i {
             color: white;
+        }
+    }
+}
+
+@media all and (min-width: 992px) {
+    .back-button i {
+        left: 20px;
+        font-size: 30px;
+        position: absolute;
+        font-weight: 900;
+        margin: 0;
+        padding: 0;
+        color: black;
+    }
+
+    .imagebackground {
+        left: 0;
+        top: 70px;
+        position: absolute;
+        z-index: -1;
+
+        img {
+            width: 1440px;
+            height: 400px;
+        }
+    }
+
+    .whitebackground {
+        margin-top: 250px;
+        background-color: #e3e3e3;
+        border-radius: 45px 45px 0 0;
+        padding: 0 200px;
+        margin-bottom: 0;
+        margin-left: 200px;
+        margin-right: 200px;
+
+    }
+
+    .order-btn {
+        background-image: linear-gradient(to bottom, $color-secondary, $color-primary);
+        border: none;
+        font-size: 18px;
+        padding: 11px 70px;
+        margin: 0;
+        margin-bottom: 54px;
+        border-radius: 27px;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-image: linear-gradient(to bottom, lighten($color-secondary, 5%), lighten($color-primary, 5%));
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4); // Increase the shadow to make it more visible
+        }
+    }
+
+    .menu-header {
+        display: flex;
+        align-items: center;
+        position: relative;
+        justify-content: center;
+        flex-direction: row;
+
+        h1 {
+            margin-top: 30px;
+            font-family: $font-secondary;
+            font-style: italic;
+            font-size: 32px;
+            font-weight: bold;
+            color: $color-primary;
+            padding: 9px;
+            color: black;
+        }
+
+        .like-button-header {
+            position: absolute;
+            right: 30px;
+            font-size: 25px;
+            color: black;
+
+            // transition: all ease 0.4s;
+            &-full {
+                opacity: 0;
+                transition: opacity 300ms;
+                background-image: linear-gradient(-10deg, $color-secondary, $color-primary);
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            p {
+                font-size: 48px;
+                font-weight: 100;
+            }
+
+        }
+    }
+
+    .menu-section {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+
+        hr {
+            width: 48px;
+            height: 3px;
+            background-color: $color-tertiary;
+            border: none;
+            margin-left: 10px;
+            margin-bottom: 16px;
+            margin: 0;
+        }
+
+        h2 {
+            font-family: $font-secondary;
+            color: black;
+            font-weight: lighter;
+            // margin-bottom: 3px;
+            margin-top: 17px;
+            padding-left: 9px;
+            font-size: 17px;
+            // margin: 0;
+        }
+
+
+
+        .menu-item {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+            border-radius: 10px;
+            // transition: transform 0.3s ease;
+            overflow: hidden;
+            height: 80px;
+            width: 100%;
+
+            &__squeezer {
+                width: calc(100% + 80px);
+                display: flex;
+                justify-content: space-between;
+                transition: width 1s;
+            }
+
+            &__text {
+                flex: fit-content;
+                display: flex;
+                flex-direction: column;
+                padding: 2px 16px;
+                // margin-bottom: 16px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+
+                .dish-name {
+                    font-weight: bold;
+                    color: black;
+                }
+
+                .dish-description {
+                    font-size: 12px;
+                    color: black;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            .dish-price {
+                font-size: 16px;
+                color: black;
+                width: 70px;
+                min-width: 70px;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+            }
+
+            .checkmark {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 80px;
+                min-width: 80px;
+                border-radius: 0 10px 10px 0;
+                background-color: $color-tertiary;
+
+                i {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: white;
+                    color: $color-tertiary;
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+                    transition: transform 1s ease;
+                    // FIXME use keyframe instead of transition to rotate white checkmark and use the forwards option
+                }
+            }
+
+            &:hover {
+                .menu-item__squeezer {
+                    width: 100%;
+                }
+
+                // transform: translateY(-5px);
+                .checkmark i {
+                    transform: rotate(360deg);
+                }
+            }
+
+        }
+
+
+
+
+    }
+
+    @keyframes checkmark {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+
+    .button-div {
+        // width:;
+        text-align: center;
+        margin-top: 34px;
+    }
+
+    footer {
+        background-color: #3b3b3b;
+
+        text-align: left;
+        padding: 32px;
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin-bottom: 0.5em;
+            }
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+
+            i {
+                color: white;
+            }
         }
     }
 }
