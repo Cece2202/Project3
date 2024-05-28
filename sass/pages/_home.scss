@@ -17,7 +17,7 @@ header {
     width: 100vw;
     z-index: 1000;
     animation: disappear 0s 3s forwards;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, .5);
 }
 
 .spinner {
@@ -459,10 +459,10 @@ footer {
         // background-color: rgba(0, 0, 0, 0.05);
         display: inline-flex;
         align-content: space-between;
-        justify-content: flex-end;
-        align-items: flex-start;
+        justify-content: center;
+        align-items: center;
         justify-items: stretch;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         gap: 30px;
 
@@ -471,6 +471,16 @@ footer {
             color: black;
             margin: 25px 0;
             display: flex;
+        }
+
+        .restaurant-cards {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: space-between;
+            justify-content: center;
+            align-items: stretch;
+            gap: 20px;
         }
 
         .restaurant-card {
